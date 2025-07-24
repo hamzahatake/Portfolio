@@ -12,7 +12,7 @@ const projects = [
     desc: 'A full-stack web app where users build teams of anime characters and simulate turn-based battles with dynamic stats, animations, and battle logs.',
     tech: ['React', 'Redux Toolkit', 'RTK Query', 'Tailwind CSS', 'Framer Motion', 'Django REST Framework', 'PostgreSQL', 'JWT Auth'],
     github: 'https://github.com/hamzahatake',
-    demo: '#',
+    demo: 'https://dbz-battle-simulator-neon.vercel.app',
   },
   {
     image: project2,
