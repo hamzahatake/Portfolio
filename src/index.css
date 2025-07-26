@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+body {
+    background-color: #0284c7; /* as of Tailwind v3 */
+
+}
