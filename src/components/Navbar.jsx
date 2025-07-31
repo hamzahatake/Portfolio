@@ -1,62 +1,63 @@
 import { FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
-const icons = [
-  {
-    icon: <FaLinkedin />,
-    href: 'https://www.linkedin.com/in/hamza-sarwar-474509263/',
-    label: 'LinkedIn',
-  },
-  {
-    icon: <FaInstagram />,
-    href: 'https://www.instagram.com/otakutheartist',
-    label: 'Instagram',
-  },
-  {
-    icon: <FaGithub />,
-    href: 'https://github.com/hamzahatake',
-    label: 'GitHub',
-  },
-];
-
 const Navbar = () => (
   <motion.nav
     initial={{ y: -50, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
     transition={{ duration: 0.6, ease: 'easeOut' }}
-    className="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 py-3 bg-[#1A2744]/90 text-white shadow-md backdrop-blur-md"
+    className="fixed top-0 left-0 w-full z-50 px-6 py-4 bg-transparent text-white"
   >
-    <div className="flex justify-center items-center w-full max-w-7xl mx-auto">
-      <ul className="flex flex-row gap-6 font-['Titillium Web'] font-semibold tracking-wide text-base sm:text-lg">
-        {icons.map(({ icon, href, label }, index) => (
-          <motion.li
-            key={index}
-            className="relative group"
-            whileHover="hover"
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-          >
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              className="text-white transition-colors duration-200 group-hover:text-[#00D9FF]"
-            >
-              {icon}
-            </a>
+    <div className="flex justify-between items-center max-w-7xl mx-auto">
+      {/* Brand / Logo */}
+      <motion.h1
+        whileHover={{ scale: 1.05 }}
+        className="text-xl font-semibold tracking-tight text-white drop-shadow-md"
+      >
+        Hamza.dev
+      </motion.h1>
 
-            <motion.span
-              variants={{
-                hover: { scaleX: 1, opacity: 1 },
-                initial: { scaleX: 0, opacity: 0 },
-              }}
-              initial="initial"
-              className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#00D9FF] origin-left transform scale-x-0 opacity-0 transition-transform"
-            />
-          </motion.li>
-        ))}
+      {/* Social Links */}
+      <ul className="hidden md:flex gap-5">
+        <motion.li whileHover={{ scale: 1.15, rotate: -6 }}>
+          <a
+            href="https://www.linkedin.com/in/hamza-sarwar-474509263/"
+            title="LinkedIn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xl text-white hover:text-white/80 transition-colors duration-300"
+          >
+            <FaLinkedin />
+          </a>
+        </motion.li>
+
+        <motion.li whileHover={{ scale: 1.15, rotate: -6 }}>
+          <a
+            href="https://www.instagram.com/otakutheartist"
+            title="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xl text-white hover:text-white/80 transition-colors duration-300"
+          >
+            <FaInstagram />
+          </a>
+        </motion.li>
+
+        <motion.li whileHover={{ scale: 1.15, rotate: -6 }}>
+          <a
+            href="https://github.com/hamzahatake"
+            title="GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xl text-white hover:text-white/80 transition-colors duration-300"
+          >
+            <FaGithub />
+          </a>
+        </motion.li>
       </ul>
+
+      {/* Optional mobile menu placeholder */}
+      <div className="md:hidden"></div>
     </div>
   </motion.nav>
 );
