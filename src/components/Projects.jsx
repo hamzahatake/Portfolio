@@ -26,8 +26,8 @@ const projects = [
   },
   {
     image: Project3,
-    title: 'ShopEase Redux E-Commerce Store',
-    description: 'A clean e-commerce interface with responsive design, dynamic product listings, and smooth user interactions—built for both usability and performance.',
+    title: 'ShopEase - Redux E-Commerce Store',
+    description: 'A clean e-commerce interface with responsive design, dynamic product listings, and smooth user interactions, built for both usability and performance.',
     tags: ['React', 'JavaScript', 'Redux Toolkit', 'Tailwind CSS'],
     code: 'https://github.com/hamzahatake/redux-ecommerce-store-WIP',
     live: 'https://redux-ecommerce-store-wip.vercel.app',
