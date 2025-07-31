@@ -1,4 +1,5 @@
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import hamzaImg from '/image/Hamza.png';
 
 const skills = [
