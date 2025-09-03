@@ -75,7 +75,7 @@ const About = () => (
             I have an{' '}
             <a
               href="https://www.instagram.com/otakutheartist"
-              className="text-cyan-200 hover:underline"
+              className="text-yellow-300 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
