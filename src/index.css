@@ -204,7 +204,6 @@ body {
   font-weight: var(--font-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none; /* Hide default cursor for custom cursor */
 }
 
 /* Unified gradient for all sections */

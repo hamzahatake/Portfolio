@@ -5,7 +5,6 @@ import Projects from './components/Projects';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import CustomCursor from './components/CustomCursor';
 import LoadingScreen from './components/LoadingScreen';
 import PageTransition from './components/PageTransition';
 import { performanceMonitor } from './utils/performanceMonitor';
@@ -35,7 +34,6 @@ function App() {
   return (
     <ThemeProvider>
       <LoadingScreen />
-      <CustomCursor />
       <PageTransition>
         <Navbar />
         <Hero />

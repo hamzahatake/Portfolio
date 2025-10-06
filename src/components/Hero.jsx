@@ -35,7 +35,6 @@ const Hero = () => {
     "Full-Stack Developer",
     "React Specialist", 
     "Django Expert",
-    "UI/UX Enthusiast",
     "Problem Solver"
   ];
 
