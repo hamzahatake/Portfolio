@@ -231,25 +231,41 @@ const ProjectCard = ({
           transition: { duration: 0.4, ease: "easeOut" }
         }}
       >
-        {/* Advanced Background Effects */}
-        <GradientMesh 
-          intensity={featured ? "strong" : "medium"}
-          colors={categoryColor === 'blue' ? ["#3b82f6", "#8b5cf6", "#06b6d4", "#10b981"] : 
-                  categoryColor === 'purple' ? ["#8b5cf6", "#ec4899", "#f59e0b", "#10b981"] :
-                  categoryColor === 'green' ? ["#10b981", "#3b82f6", "#f59e0b", "#ec4899"] :
-                  ["#f59e0b", "#ef4444", "#8b5cf6", "#3b82f6"]}
-        />
+        {/* Performance-Optimized Background Effects */}
+        {featured && (
+          <>
+            <GradientMesh 
+              intensity="medium"
+              colors={categoryColor === 'blue' ? ["#3b82f6", "#8b5cf6"] : 
+                      categoryColor === 'purple' ? ["#8b5cf6", "#ec4899"] :
+                      categoryColor === 'green' ? ["#10b981", "#3b82f6"] :
+                      ["#f59e0b", "#ef4444"]}
+            />
+            
+            <DynamicLighting 
+              intensity="medium"
+              color={categoryColor}
+            />
+            
+            <ParticleSystem 
+              count={15}
+              featured={false}
+              color={categoryColor}
+            />
+          </>
+        )}
         
-        <DynamicLighting 
-          intensity={featured ? "strong" : "medium"}
-          color={categoryColor}
-        />
-        
-        <ParticleSystem 
-          count={featured ? 80 : 30}
-          featured={featured}
-          color={categoryColor}
-        />
+        {/* Simple gradient for non-featured cards */}
+        {!featured && (
+          <div 
+            className="absolute inset-0 rounded-3xl"
+            style={{
+              background: `linear-gradient(135deg, ${categoryColor === 'blue' ? '#3b82f620' : 
+                          categoryColor === 'purple' ? '#8b5cf620' :
+                          categoryColor === 'green' ? '#10b98120' : '#f59e0b20'}, transparent 70%)`
+            }}
+          />
+        )}
         {/* Premium Glass Layers */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent rounded-3xl" />
         <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-white/5 to-white/10 rounded-3xl" />

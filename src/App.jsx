@@ -8,6 +8,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 import PageTransition from './components/PageTransition';
+import PerformanceMonitor from './components/PerformanceMonitor';
 import { performanceMonitor } from './utils/performanceMonitor';
 import { useEffect, useState } from 'react';
 import ParallaxElement from './components/ParallaxElement';
@@ -45,6 +46,7 @@ function App() {
   return (
     <ThemeProvider>
       <LoadingScreen />
+      <PerformanceMonitor />
       
       {/* Fixed Left and Right Navbars */}
       <div className="fixed inset-0 pointer-events-none z-50">

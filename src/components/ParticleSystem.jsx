@@ -55,22 +55,19 @@ const ParticleSystem = ({
           animate={{
             x: [
               0,
-              Math.cos(particle.direction * Math.PI / 180) * particle.speed * 20,
-              Math.cos(particle.direction * Math.PI / 180) * particle.speed * 40,
+              Math.cos(particle.direction * Math.PI / 180) * particle.speed * 10,
               0
             ],
             y: [
               0,
-              Math.sin(particle.direction * Math.PI / 180) * particle.speed * 20,
-              Math.sin(particle.direction * Math.PI / 180) * particle.speed * 40,
+              Math.sin(particle.direction * Math.PI / 180) * particle.speed * 10,
               0
             ],
-            scale: [1, 1.2, 0.8, 1],
-            opacity: [particle.opacity, particle.opacity * 0.3, particle.opacity * 0.7, particle.opacity],
-            rotate: [0, 180, 360]
+            scale: [1, 1.1, 1],
+            opacity: [particle.opacity, particle.opacity * 0.5, particle.opacity]
           }}
           transition={{
-            duration: particle.duration,
+            duration: Math.min(particle.duration, 8),
             delay: particle.delay,
             repeat: Infinity,
             ease: "easeInOut"

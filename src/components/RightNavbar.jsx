@@ -19,9 +19,7 @@ const RightNavbar = () => {
 
   return (
     <div className="relative flex flex-col justify-center items-center gap-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-6 overflow-hidden">
-      {/* Animated Background Elements */}
-      <FloatingParticles count={12} />
-      <GradientOrbs />
+      {/* Optimized Background Elements - Removed for performance */}
       <GlowEffects />
       
       {/* Social Links */}
