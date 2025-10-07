@@ -526,9 +526,11 @@ footer {
   animation: shimmer 2s infinite;
 }
 
-/* Smooth transitions for all interactive elements */
-* {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Optimized transitions for interactive elements only */
+button, a, .hover-lift, .interactive {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 /* Enhanced hover effects */

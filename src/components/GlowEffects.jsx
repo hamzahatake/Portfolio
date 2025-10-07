@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 
 const GlowEffects = ({ className = "" }) => {
   const { colorScheme, theme } = useTheme();
+  const prefersReducedMotion = useReducedMotion();
 
   const colorSchemes = {
     sky: {
@@ -34,11 +36,11 @@ const GlowEffects = ({ className = "" }) => {
           background: `radial-gradient(circle, ${currentColor}15, transparent 70%)`,
           filter: 'blur(20px)',
         }}
-        animate={{
+        animate={prefersReducedMotion ? {} : {
           opacity: [0.3, 0.7, 0.3],
           scale: [1, 1.05, 1],
         }}
-        transition={{
+        transition={prefersReducedMotion ? {} : {
           duration: 4,
           repeat: Infinity,
           ease: "easeInOut",

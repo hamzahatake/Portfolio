@@ -11,23 +11,34 @@ const DynamicLighting = ({
   const [time, setTime] = useState(0);
 
   useEffect(() => {
+    let animationFrame;
+    let lastTime = 0;
+    
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      // Throttle mouse tracking to 60fps
+      if (Date.now() - lastTime > 16) {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+        lastTime = Date.now();
+      }
     };
 
-    const interval = setInterval(() => {
-      setTime(prev => prev + 0.1);
-    }, 100);
+    const updateTime = () => {
+      setTime(prev => prev + 0.05); // Reduced frequency
+      animationFrame = requestAnimationFrame(updateTime);
+    };
 
     if (typeof window !== 'undefined') {
-      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+      updateTime();
     }
     
     return () => {
       if (typeof window !== 'undefined') {
         window.removeEventListener('mousemove', handleMouseMove);
       }
-      clearInterval(interval);
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
     };
   }, []);
 
@@ -59,7 +70,8 @@ const DynamicLighting = ({
           height: '200px',
           background: `radial-gradient(circle, ${currentColor}40 0%, transparent 70%)`,
           filter: `blur(${currentIntensity.blur}px)`,
-          transform: 'translate(-50%, -50%)'
+          transform: 'translate3d(-50%, -50%, 0)',
+          willChange: 'transform, opacity'
         }}
         animate={animated ? {
           scale: [1, 1.2, 1],
