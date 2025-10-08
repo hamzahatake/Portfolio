@@ -1,7 +1,7 @@
 import { FaLinkedin, FaInstagram, FaGithub, FaSun, FaMoon, FaPalette } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import FloatingParticles from './FloatingParticles';
 import GradientOrbs from './GradientOrbs';
 import GlowEffects from './GlowEffects';
@@ -9,6 +9,24 @@ import GlowEffects from './GlowEffects';
 const RightNavbar = () => {
   const { theme, colorScheme, toggleTheme, changeColorScheme } = useTheme();
   const [showColorPicker, setShowColorPicker] = useState(false);
+  const colorPickerRef = useRef(null);
+
+  // Close color picker when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (colorPickerRef.current && !colorPickerRef.current.contains(event.target)) {
+        setShowColorPicker(false);
+      }
+    };
+
+    if (showColorPicker) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showColorPicker]);
 
   const colorSchemes = [
     { name: 'Sky', value: 'sky', color: '#0ea5e9' },
@@ -18,7 +36,7 @@ const RightNavbar = () => {
   ];
 
   return (
-    <div className="relative flex flex-col justify-center items-center gap-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-6 overflow-hidden">
+    <div className="relative flex flex-col justify-center items-center gap-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-6">
       {/* Optimized Background Elements - Removed for performance */}
       <GlowEffects />
       
@@ -64,7 +82,7 @@ const RightNavbar = () => {
       {/* Theme Controls */}
       <div className="flex flex-col gap-4 relative z-10">
         {/* Color Scheme Picker */}
-        <div className="relative">
+        <div className="relative" ref={colorPickerRef}>
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
@@ -82,7 +100,13 @@ const RightNavbar = () => {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-full right-0 mt-2 p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg shadow-xl"
+                className="absolute top-full right-0 mt-2 p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg shadow-xl z-50"
+                style={{ 
+                  position: 'absolute',
+                  right: '-20px',
+                  top: '100%',
+                  marginTop: '8px'
+                }}
               >
                 <div className="flex flex-col gap-2">
                   {colorSchemes.map((scheme) => (

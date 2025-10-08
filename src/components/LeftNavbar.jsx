@@ -1,4 +1,4 @@
-import { FaHome, FaUser, FaCode, FaEnvelope } from 'react-icons/fa';
+import { FaHome, FaUser, FaCode, FaEnvelope, FaCogs } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import FloatingParticles from './FloatingParticles';
 import GradientOrbs from './GradientOrbs';
@@ -8,6 +8,7 @@ const LeftNavbar = () => {
   const navItems = [
     { name: 'Home', href: '#hero', icon: FaHome },
     { name: 'About', href: '#about', icon: FaUser },
+    { name: 'Skills', href: '#skills', icon: FaCogs },
     { name: 'Projects', href: '#projects', icon: FaCode },
     { name: 'Contact', href: '#contact', icon: FaEnvelope }
   ];

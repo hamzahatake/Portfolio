@@ -373,15 +373,14 @@ const ProjectCard = ({
             className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-center justify-center gap-3 z-30"
             transition={{ duration: 0.3 }}
         >
-          <motion.a
-            href={live}
-            target="_blank"
-            rel="noopener noreferrer"
+            <motion.a
+              href={live}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white/20 backdrop-blur-md border border-white/30 text-white px-4 py-2 rounded-full text-xs font-bold shadow-xl hover:bg-white/30 transition-all duration-300"
-              whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.1, y: -2, opacity: 1 }}
+              whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 20 }}
-              whileHover={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
           >
               <FaRocket className="inline mr-1" />
@@ -394,10 +393,9 @@ const ProjectCard = ({
               target="_blank"
               rel="noopener noreferrer"
                 className="bg-black/40 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-full text-xs font-bold shadow-xl hover:bg-black/60 transition-all duration-300"
-                whileHover={{ scale: 1.1, y: -2 }}
+                whileHover={{ scale: 1.1, y: -2, opacity: 1 }}
               whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
-                whileHover={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
             >
                 <FaCode className="inline mr-1" />
@@ -409,10 +407,9 @@ const ProjectCard = ({
               <motion.button
                 onClick={() => setShowDemo(!showDemo)}
                 className="bg-purple-500/40 backdrop-blur-md border border-purple-400/30 text-white px-4 py-2 rounded-full text-xs font-bold shadow-xl hover:bg-purple-500/60 transition-all duration-300"
-                whileHover={{ scale: 1.1, y: -2 }}
+                whileHover={{ scale: 1.1, y: -2, opacity: 1 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
-                whileHover={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
                 <FaPlay className="inline mr-1" />
@@ -425,10 +422,9 @@ const ProjectCard = ({
               <motion.button
                 onClick={() => setShowMetrics(!showMetrics)}
                 className="bg-green-500/40 backdrop-blur-md border border-green-400/30 text-white px-4 py-2 rounded-full text-xs font-bold shadow-xl hover:bg-green-500/60 transition-all duration-300"
-                whileHover={{ scale: 1.1, y: -2 }}
+                whileHover={{ scale: 1.1, y: -2, opacity: 1 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
-                whileHover={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
                 📊 Metrics
@@ -440,10 +436,9 @@ const ProjectCard = ({
               <motion.button
                 onClick={() => setShowTestimonial(!showTestimonial)}
                 className="bg-yellow-500/40 backdrop-blur-md border border-yellow-400/30 text-white px-4 py-2 rounded-full text-xs font-bold shadow-xl hover:bg-yellow-500/60 transition-all duration-300"
-                whileHover={{ scale: 1.1, y: -2 }}
+                whileHover={{ scale: 1.1, y: -2, opacity: 1 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
-                whileHover={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
                 💬 Review
@@ -455,10 +450,9 @@ const ProjectCard = ({
               <motion.button
                 onClick={() => setShowBeforeAfter(!showBeforeAfter)}
                 className="bg-pink-500/40 backdrop-blur-md border border-pink-400/30 text-white px-4 py-2 rounded-full text-xs font-bold shadow-xl hover:bg-pink-500/60 transition-all duration-300"
-                whileHover={{ scale: 1.1, y: -2 }}
+                whileHover={{ scale: 1.1, y: -2, opacity: 1 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
-                whileHover={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
                 🔄 Compare

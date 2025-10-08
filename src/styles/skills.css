@@ -1,0 +1,82 @@
+/* Skills page specific styles for better performance */
+
+/* 3D perspective and transform optimizations */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Hardware acceleration for smooth animations */
+.tech-card {
+  will-change: box-shadow;
+  backface-visibility: hidden;
+}
+
+/* Enhanced 3D icon animations */
+.tech-card svg,
+.tech-icon {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, rotateY, rotateX, scale;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced card hover effects */
+.tech-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow, rotateX, rotateY;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.tech-card:focus {
+  outline: 2px solid rgba(230, 179, 37, 0.5);
+  outline-offset: 2px;
+}
+
+/* Magnetic hover effect */
+.tech-card:hover {
+  transform: translateZ(5px);
+}
+
+/* Glow animation */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(230, 179, 37, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(230, 179, 37, 0.6); }
+}
+
+.tech-card.glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Performance optimized gradients */
+.skills-gradient {
+  background: linear-gradient(135deg, 
+    rgba(30, 41, 59, 0.95) 0%, 
+    rgba(51, 65, 85, 0.9) 50%, 
+    rgba(30, 41, 59, 0.95) 100%
+  );
+}
+
+/* Smooth transitions for better UX */
+.tech-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Optimized scroll performance */
+.skills-section {
+  contain: layout style paint;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .tech-card,
+  .tech-transition {
+    transition: none;
+  }
+  
+  .tech-card:hover {
+    transform: none;
+  }
+}

@@ -1,39 +1,9 @@
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact } from 'react-icons/fa';
 import hamzaImg from '/image/Hamza.jpg';
 import { motion } from 'framer-motion';
 import Timeline from './Timeline';
 import Testimonials from './Testimonials';
 
-const skills = [
-  'React.js',
-  'Redux Toolkit',
-  'RTK Query',
-  'Tailwind CSS',
-  'Framer Motion',
-  'Django',
-  'Django REST Framework',
-  'REST API Development',
-  'Authentication (Token-Based)',
-  'PostgreSQL',
-  'Full Stack Web Development',
-];
 
-
-// Animation Variants
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 15 },
-  show: { opacity: 1, y: 0 },
-};
 
 const About = () => (
   <section className="py-20 px-4 sm:px-6 lg:px-8 text-primary" id="about">
@@ -85,29 +55,6 @@ const About = () => (
           </p>
         </div>
 
-        {/* Skills */}
-        <div>
-          <h3 className="heading-3 text-primary text-shadow mb-6">Skills</h3>
-          
-          {/* Skill Tags */}
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="flex flex-wrap gap-2 sm:gap-3"
-          >
-            {skills.map((skill, idx) => (
-              <motion.div
-                key={idx}
-                variants={item}
-                className="bg-gradient-primary text-white rounded-full px-3 sm:px-4 py-1.5 text-sm sm:text-sm font-medium shadow"
-              >
-                {skill}
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
       </div>
     </div>
 
